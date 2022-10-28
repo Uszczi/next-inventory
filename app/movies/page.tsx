@@ -25,25 +25,24 @@
 //   return <p onClick={props.onClick}>{nodes}</p>;
 // };
 //
+//
 
+//
+
+export interface Movie {
+  directors: string;
+  id: string;
+  production_year: string;
+  title: string;
+  watch_date: string;
+}
+
+async function getMovies(): Promise<Movie[]> {
+  const response = await fetch("https://mateuszpapuga.pl/api/movies");
+  return await response.json();
+}
 export default async function MoviesList() {
-  // const movies: Movie[] = useSelector(
-  //   (state: { movies: { value: Movie[] } }) => state.movies.value
-  // async function getMovies() {
-  //   console.log("running");
-  //   return await fetch("https://mateuszpapuga.pl/api/movies", {
-  //     cache: "no-store",
-  //   });
-  // }
-  async function getMovies() {
-    console.log("running");
-    return await fetch("https://mateuszpapuga.pl/api/movies");
-  }
-  // );
-  // const dispatch = useDispatch();
-  //
-  const movies_response = await getMovies();
-  let toDisplay = await movies_response.json();
+  let toDisplay = await getMovies();
   // toDisplay = toDisplay.slice(0, 100);
   // const toDisplay = [];
   // const toDisplay = [
@@ -86,21 +85,22 @@ export default async function MoviesList() {
   // }
 
   return (
-    <div className="MoviesList">
-      <input placeholder="Start typing..." />
-      {toDisplay.map((element, i) => {
-        return (
-          <div key={i} className="card">
-            <div>{i + 1}</div>
-            <div>
+    <div className="flex justify-center">
+      <div className="" style={{ width: "700px" }}>
+        <input placeholder="Start typing..." />
+
+        {toDisplay.map((element, i) => {
+          return (
+            <div key={i} className="flex">
+              <div>{i + 1}</div>
               <p>{element.title}</p>
               <p>{element.title}</p>
               <p>{element.directors}</p>
+              <p>{element.watch_date}</p>
             </div>
-            <div>{element.watch_date}</div>
-          </div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }
