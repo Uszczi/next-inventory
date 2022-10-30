@@ -18,12 +18,12 @@ export default function RootLayout({
             display: "flex",
             flexDirection: "column",
             width: "100vw",
-            height: "100vw",
+            height: "100vh",
           }}
         >
-          <div style={{ background: "red" }}>cc</div>
-
+          <div className="h-[4vh] border-b-2"></div>
           {children}
+          <div className="h-[4vh] border-t-2"></div>
         </div>
       </body>
     </html>

@@ -85,7 +85,7 @@ export default async function MoviesList() {
   // }
 
   return (
-    <div className="flex justify-center ">
+    <div className="flex justify-center overflow-y-scroll        h-[92vh] ">
       <div className="" style={{ maxWidth: "700px" }}>
         <input placeholder="Start typing..." />
 
