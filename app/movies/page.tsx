@@ -6,7 +6,7 @@ export default async function MoviesList() {
   const toDisplay = await prisma.movie.findMany();
 
   return (
-    <div className="flex justify-center overflow-y-scroll        h-[92vh]">
+    <div className="flex h-[92vh] justify-center overflow-y-scroll">
       <FzfMoviesTable elements={toDisplay} />
     </div>
   );
