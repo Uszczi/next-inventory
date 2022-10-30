@@ -69,7 +69,10 @@ export default function FzfMoviesTable({ elements }: { elements: Movie[] }) {
       </div>
       {toDisplay.map((element, i) => {
         return (
-          <div key={i} className="mb-5 flex items-center gap-3 p-4 shadow-md">
+          <div
+            key={i}
+            className="mb-5 flex items-center gap-1 p-4 shadow-md md:gap-3"
+          >
             <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-white">
               {i + 1}
             </div>
