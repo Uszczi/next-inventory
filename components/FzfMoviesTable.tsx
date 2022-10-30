@@ -1,15 +1,8 @@
 "use client";
 
+import type { Movie } from "@prisma/client";
 import { Fzf, FzfResultItem } from "fzf";
 import { useEffect, useState } from "react";
-
-export interface Movie {
-  directors: string;
-  id: string;
-  production_year: string;
-  title: string;
-  watch_date: string;
-}
 
 const HighlightChars = (props: {
   str: string;
