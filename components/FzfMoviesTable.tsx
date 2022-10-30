@@ -71,9 +71,9 @@ export default function FzfMoviesTable({ elements }: { elements: Movie[] }) {
         return (
           <div
             key={i}
-            className="mb-5 flex items-center gap-1 p-4 shadow-md md:gap-3"
+            className="mb-5 flex items-center gap-1 p-4 px-1 shadow-md md:gap-3"
           >
-            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-black text-white">
+            <div className="flex h-8 w-8 min-w-[32px] items-center justify-center rounded-full bg-black text-white">
               {i + 1}
             </div>
             <HighlightChars
@@ -82,7 +82,7 @@ export default function FzfMoviesTable({ elements }: { elements: Movie[] }) {
               onClick={() => {}}
             />
             <p className="font-bold">{element.item.directors}</p>
-            <p className="ml-auto shrink-0">{element.item.watch_date}</p>
+            <p className="ml-auto hidden shrink-0">{element.item.watch_date}</p>
           </div>
         );
       })}
