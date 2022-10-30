@@ -51,7 +51,7 @@ export default function FzfMoviesTable({ elements }: { elements: Movie[] }) {
       selector: (item) => item.title,
     });
     setFzf(fzf);
-  }, []);
+  }, [elements]);
 
   return (
     <div className="" style={{ width: "700px" }}>
