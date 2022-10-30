@@ -85,16 +85,18 @@ export default async function MoviesList() {
   // }
 
   return (
-    <div className="flex justify-center">
+    <div className="flex justify-center ">
       <div className="" style={{ maxWidth: "700px" }}>
         <input placeholder="Start typing..." />
 
         {toDisplay.map((element, i) => {
           return (
-            <div key={i} className="flex shadow-md mb-5 p-4">
-              <div>{i + 1}</div>
+            <div key={i} className="flex shadow-md mb-5 p-4 items-center gap-3">
+              <div className="bg-black w-8 h-8 text-white rounded-full flex items-center justify-center">
+                {i + 1}
+              </div>
               <p>{element.title}</p>
-              <p className="ml-2 font-bold">{element.directors}</p>
+              <p className="font-bold">{element.directors}</p>
               <p className="ml-auto">{element.watch_date}</p>
             </div>
           );
