@@ -54,7 +54,7 @@ export default function FzfMoviesTable({ elements }: { elements: Movie[] }) {
   }, [elements]);
 
   return (
-    <div className="w-[700px]">
+    <div className="max-w-[800px]">
       <div className="mb-4 mt-7">
         <div className="relative w-full  h-10">
           <input
