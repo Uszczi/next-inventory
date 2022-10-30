@@ -91,12 +91,11 @@ export default async function MoviesList() {
 
         {toDisplay.map((element, i) => {
           return (
-            <div key={i} className="flex">
+            <div key={i} className="flex shadow-md mb-5 p-4">
               <div>{i + 1}</div>
               <p>{element.title}</p>
-              <p>{element.title}</p>
-              <p>{element.directors}</p>
-              <p>{element.watch_date}</p>
+              <p className="ml-2 font-bold">{element.directors}</p>
+              <p className="ml-auto">{element.watch_date}</p>
             </div>
           );
         })}
