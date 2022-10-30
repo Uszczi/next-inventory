@@ -1,4 +1,4 @@
-export default const movies = [
+export default [
   {
     title: "American Summer",
     watch_date: "2017-01-01",
