@@ -2,7 +2,7 @@
 
 import type { Movie } from "@prisma/client";
 import { Fzf, FzfResultItem } from "fzf";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const HighlightChars = (props: {
   str: string;
@@ -35,21 +35,23 @@ export default function FzfMoviesTable({ elements }: { elements: Movie[] }) {
     setToDisplay(result);
   }
 
-  if (elements.length > 0) {
-    const allFzf = new Fzf(elements, {
-      fuzzy: "v1",
+  useEffect(() => {
+    if (elements.length > 0) {
+      const allFzf = new Fzf(elements, {
+        fuzzy: "v1",
+        selector: (item) => item.title,
+      });
+      const allItems = allFzf.find("");
+      setToDisplay(allItems);
+    }
+
+    const fzf = new Fzf(elements, {
+      limit: 22,
+      casing: "case-insensitive",
       selector: (item) => item.title,
     });
-    const allItems = allFzf.find("");
-    setToDisplay(allItems);
-  }
-
-  const _fzf = new Fzf(elements, {
-    limit: 22,
-    casing: "case-insensitive",
-    selector: (item) => item.title,
-  });
-  setFzf(_fzf);
+    setFzf(fzf);
+  }, []);
 
   return (
     <div className="" style={{ width: "700px" }}>
