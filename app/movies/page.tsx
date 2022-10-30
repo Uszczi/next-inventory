@@ -86,7 +86,7 @@ export default async function MoviesList() {
 
   return (
     <div className="flex justify-center">
-      <div className="" style={{ width: "700px" }}>
+      <div className="" style={{ maxWidth: "700px" }}>
         <input placeholder="Start typing..." />
 
         {toDisplay.map((element, i) => {
