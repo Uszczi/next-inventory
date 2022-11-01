@@ -1,10 +1,12 @@
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
 }
 
 model Post {
@@ -38,4 +40,19 @@ model Movie {
   production_year Int
   watch_date      String
   directors       String
+}
+
+model Puzzle {
+  id      Int               @id @default(autoincrement())
+  name    String
+  pieces  Int
+  entries PuzzleTimeEntry[]
+}
+
+model PuzzleTimeEntry {
+  id       Int      @id @default(autoincrement())
+  start    DateTime
+  end      DateTime
+  Puzzle   Puzzle?  @relation(fields: [puzzleId], references: [id])
+  puzzleId Int?
 }
