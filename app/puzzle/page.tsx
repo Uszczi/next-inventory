@@ -32,10 +32,9 @@ export default async function Puzzle() {
             <div>{moment(e.start).format("HH:MM:SS")}</div>
             <div>{moment(e.end).format("HH:MM:SS")}</div>
             <div>
-              {
-                moment.duration(moment(e.end).diff(moment(e.start)), "seconds")
-                  .seconds
-              }
+              {moment
+                .duration(moment(e.end).diff(moment(e.start)), "seconds")
+                .seconds()}
             </div>
           </div>
         );
