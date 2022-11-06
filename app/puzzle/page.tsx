@@ -27,9 +27,16 @@ export default async function Puzzle() {
         return (
           <div className="grid w-[500px] grid-cols-[20px_150px_150px_70px]">
             <div>{i + 1}. </div>
-            <div>{moment(e.start).format("HH:MM  DD/MM/YYYY")}</div>
-            <div>{moment(e.end).format("HH:MM  DD/MM/YYYY")}</div>
-            <div>{moment(e.end).diff(moment(e.start), "minutes")}</div>
+            <div>{moment(e.start).format("HH:MM")}</div>
+            <div>{moment(e.end).format("HH:MM")}</div>
+            <div>{moment(e.start).format("HH:MM:SS")}</div>
+            <div>{moment(e.end).format("HH:MM:SS")}</div>
+            <div>
+              {
+                moment.duration(moment(e.end).diff(moment(e.start)), "seconds")
+                  .seconds
+              }
+            </div>
           </div>
         );
       })}
