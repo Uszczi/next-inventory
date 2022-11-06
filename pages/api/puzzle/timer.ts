@@ -10,7 +10,7 @@ export default async function handler(
 
   if (req.method === "GET") {
     const timeEntry = await prisma.puzzleTimeEntry.findFirst({
-      where: { end: null },
+      where: { end: null || undefined },
     });
 
     if (!timeEntry) {
@@ -26,7 +26,7 @@ export default async function handler(
 
     if ("start" in req.query) {
       const timeEntry = await prisma.puzzleTimeEntry.findFirst({
-        where: { end: null },
+        where: { end: null || undefined },
       });
       if (timeEntry) {
         res.status(200).json({ status: "RUNNING", start: timeEntry.start });
@@ -40,7 +40,7 @@ export default async function handler(
       res.status(200).json({ status: "CREATED", start: newEntry.start });
     } else if ("stop" in req.query) {
       const timeEntry = await prisma.puzzleTimeEntry.findFirst({
-        where: { end: null },
+        where: { end: null || undefined },
       });
       if (!timeEntry) {
         res.status(400).json({ status: "no timer is currently runnning" });
