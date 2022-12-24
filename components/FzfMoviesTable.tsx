@@ -84,7 +84,7 @@ export default function FzfMoviesTable({
             className="mb-5 flex items-center gap-1 p-5 px-1 shadow-md md:gap-3"
             style={{ backgroundColor: "#453a49" }}
           >
-            <div className="ml-3">{element.item.displayNumber}</div>
+            <div className="ml-3">{element.item.displayNumber}.</div>
             <HighlightChars
               str={element.item.title}
               positions={element.positions}
