@@ -52,7 +52,7 @@ model Puzzle {
 model PuzzleTimeEntry {
   id       Int       @id @default(autoincrement())
   start    DateTime  @default(now())
-  end      DateTime? @default(null)
+  end      DateTime? @default(now())
   Puzzle   Puzzle?   @relation(fields: [puzzleId], references: [id])
   puzzleId Int?
 }
