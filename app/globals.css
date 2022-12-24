@@ -1,3 +1,111 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* CSS HEX */
+--space-cadet: #191d32ff;
+--space-cadet-2: #282f44ff;
+--dark-liver: #453a49ff;
+--catawba: #6d3b47ff;
+--magenta-dye: #ba2c73ff;
+
+/* CSS HSL */
+--space-cadet: hsla(230, 33%, 15%, 1);
+--space-cadet-2: hsla(225, 26%, 21%, 1);
+--dark-liver: hsla(284, 11%, 26%, 1);
+--catawba: hsla(346, 30%, 33%, 1);
+--magenta-dye: hsla(330, 62%, 45%, 1);
+
+/* SCSS HEX */
+$space-cadet: #191d32ff;
+$space-cadet-2: #282f44ff;
+$dark-liver: #453a49ff;
+$catawba: #6d3b47ff;
+$magenta-dye: #ba2c73ff;
+
+/* SCSS HSL */
+$space-cadet: hsla(230, 33%, 15%, 1);
+$space-cadet-2: hsla(225, 26%, 21%, 1);
+$dark-liver: hsla(284, 11%, 26%, 1);
+$catawba: hsla(346, 30%, 33%, 1);
+$magenta-dye: hsla(330, 62%, 45%, 1);
+
+/* SCSS RGB */
+$space-cadet: rgba(25, 29, 50, 1);
+$space-cadet-2: rgba(40, 47, 68, 1);
+$dark-liver: rgba(69, 58, 73, 1);
+$catawba: rgba(109, 59, 71, 1);
+$magenta-dye: rgba(186, 44, 115, 1);
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(
+  0deg,
+  #191d32ff,
+  #282f44ff,
+  #453a49ff,
+  #6d3b47ff,
+  #ba2c73ff
+);
+$gradient-right: linear-gradient(
+  90deg,
+  #191d32ff,
+  #282f44ff,
+  #453a49ff,
+  #6d3b47ff,
+  #ba2c73ff
+);
+$gradient-bottom: linear-gradient(
+  180deg,
+  #191d32ff,
+  #282f44ff,
+  #453a49ff,
+  #6d3b47ff,
+  #ba2c73ff
+);
+$gradient-left: linear-gradient(
+  270deg,
+  #191d32ff,
+  #282f44ff,
+  #453a49ff,
+  #6d3b47ff,
+  #ba2c73ff
+);
+$gradient-top-right: linear-gradient(
+  45deg,
+  #191d32ff,
+  #282f44ff,
+  #453a49ff,
+  #6d3b47ff,
+  #ba2c73ff
+);
+$gradient-bottom-right: linear-gradient(
+  135deg,
+  #191d32ff,
+  #282f44ff,
+  #453a49ff,
+  #6d3b47ff,
+  #ba2c73ff
+);
+$gradient-top-left: linear-gradient(
+  225deg,
+  #191d32ff,
+  #282f44ff,
+  #453a49ff,
+  #6d3b47ff,
+  #ba2c73ff
+);
+$gradient-bottom-left: linear-gradient(
+  315deg,
+  #191d32ff,
+  #282f44ff,
+  #453a49ff,
+  #6d3b47ff,
+  #ba2c73ff
+);
+$gradient-radial: radial-gradient(
+  #191d32ff,
+  #282f44ff,
+  #453a49ff,
+  #6d3b47ff,
+  #ba2c73ff
+);

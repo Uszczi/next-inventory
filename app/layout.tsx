@@ -20,6 +20,7 @@ export default function RootLayout({
             flexDirection: "column",
             width: "100vw",
             height: "100vh",
+            backgroundColor: "#282f44",
           }}
         >
           <div className="h-[4vh] border-b-2"></div>

@@ -64,7 +64,7 @@ export default function FzfMoviesTable({
   }, [elements]);
 
   return (
-    <div className="w-[800px] max-w-[800px]">
+    <div className="w-[800px] max-w-[800px] " style={{ color: "white" }}>
       <div className="mb-4 mt-7">
         <div className="relative h-10 w-full">
           <input
@@ -82,6 +82,7 @@ export default function FzfMoviesTable({
           <div
             key={i}
             className="mb-5 flex items-center gap-1 p-5 px-1 shadow-md md:gap-3"
+            style={{ backgroundColor: "#453a49" }}
           >
             <div className="ml-3">{element.item.displayNumber}</div>
             <HighlightChars
