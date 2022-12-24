@@ -26,9 +26,19 @@ const HighlightChars = (props: {
   return <p onClick={props.onClick}>{nodes}</p>;
 };
 
-export default function FzfMoviesTable({ elements }: { elements: Movie[] }) {
-  const [fzf, setFzf] = useState({} as Fzf<Movie[]>);
-  const [toDisplay, setToDisplay] = useState([] as FzfResultItem<Movie>[]);
+export interface MovieDisplay extends Movie {
+  displayNumber: number;
+}
+
+export default function FzfMoviesTable({
+  elements,
+}: {
+  elements: MovieDisplay[];
+}) {
+  const [fzf, setFzf] = useState({} as Fzf<MovieDisplay[]>);
+  const [toDisplay, setToDisplay] = useState(
+    [] as FzfResultItem<MovieDisplay>[]
+  );
 
   function handleInput(e: React.FormEvent<HTMLInputElement>) {
     const result = fzf.find(e.currentTarget.value);
@@ -71,18 +81,15 @@ export default function FzfMoviesTable({ elements }: { elements: Movie[] }) {
         return (
           <div
             key={i}
-            className="mb-5 flex items-center gap-1 p-4 px-1 shadow-md md:gap-3"
+            className="mb-5 flex items-center gap-1 p-5 px-1 shadow-md md:gap-3"
           >
-            <div className="flex h-8 w-8 min-w-[32px] items-center justify-center rounded-full bg-black text-white">
-              {i + 1}
-            </div>
+            <div className="ml-3">{element.item.displayNumber}</div>
             <HighlightChars
               str={element.item.title}
               positions={element.positions}
               onClick={() => {}}
             />
             <p className="font-bold">{element.item.directors}</p>
-            <p className="ml-auto">{element.item.watch_date}</p>
           </div>
         );
       })}
