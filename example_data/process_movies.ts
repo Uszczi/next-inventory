@@ -1,11 +1,11 @@
 import * as fs from "fs";
 import * as path from "path";
 import { PrismaClient } from "@prisma/client";
+import moment from "moment";
 
 const regExpression = new RegExp(
   "(?<title>.*) \\((?<productionYear>.*)\\) \\*\\*(?<directors>.*)\\*\\*"
 );
-const prisma = new PrismaClient();
 
 function processFile(path: string) {
   const contents = fs.readFileSync(path, "utf8");
@@ -13,11 +13,27 @@ function processFile(path: string) {
   let allValidMovies = true;
   let movies = [];
 
+  let year: RegExpMatchArray | string | null = path.match(
+    new RegExp("(\\d{4})")
+  );
+  if (year) {
+    year = year[0];
+  }
+
+  let watchDay = moment(year);
+  let days = 365;
+  if (watchDay.isLeapYear()) {
+    days = 366;
+  }
+  const avg_delay = (days / lines.length).toFixed();
+
   for (let index in lines) {
     const line = lines[index];
-    const movie = processLine(line);
+    console.log(watchDay.format());
+    const movie = processLine(line, watchDay.format());
     if (movie) {
       movies.push(movie);
+      watchDay = watchDay.add(avg_delay, "days");
     } else {
       console.error(`Error at line ${+index + 1}`);
       console.error(`Line: ${line} \n`);
@@ -32,7 +48,7 @@ function processFile(path: string) {
   }
 }
 
-function processLine(line: string) {
+function processLine(line: string, watchDate: string) {
   const values = line.match(regExpression);
   const title = values?.groups?.title;
   const productionYear = values?.groups?.productionYear;
@@ -44,7 +60,7 @@ function processLine(line: string) {
     title,
     production_year: +productionYear,
     directors,
-    watch_date: "2012_12_12",
+    watch_date: watchDate,
   };
 }
 
@@ -63,6 +79,7 @@ async function main() {
 
     console.log(`Parsed ${movies.length} from ${file}`);
 
+    const prisma = new PrismaClient();
     const result = await prisma.movie.createMany({ data: movies });
     console.log(`${result.count} movies added to database\n`);
   }

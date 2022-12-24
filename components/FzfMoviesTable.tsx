@@ -82,7 +82,7 @@ export default function FzfMoviesTable({ elements }: { elements: Movie[] }) {
               onClick={() => {}}
             />
             <p className="font-bold">{element.item.directors}</p>
-            <p className="ml-auto hidden shrink-0">{element.item.watch_date}</p>
+            <p className="ml-auto">{element.item.watch_date}</p>
           </div>
         );
       })}
